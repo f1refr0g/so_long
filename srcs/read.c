@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 18:29:22 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:28:24 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	read_map(char *file, t_map *map)
 	// map->height = 0;
 	map->width = ft_strlen(line) - 1;
 	printf("\nwidth : %d\n", map->width);
-	map->stringmap = ft_strdup_nonl(line);
+	map->stringmap = ft_strdup(line);
+	map->stringmap[ft_strlen(map->stringmap) - 1] = '\0';
 		free(line);
 	while (line)
 	{
@@ -32,7 +33,9 @@ void	read_map(char *file, t_map *map)
 		line = get_next_line(fd);
 		if (line)
 		{
-			map->stringmap = ft_strjoin_nonl(map->stringmap, line);
+			map->stringmap = ft_strjoin(map->stringmap, line);
+			printf("Stringmap : %s\n", map->stringmap);
+			map->stringmap[ft_strlen(map->stringmap) - 1] = '\0';
 			free(line);
 		}
 	}

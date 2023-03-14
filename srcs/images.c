@@ -6,33 +6,33 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 17:43:02 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:53:28 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-mlx_texture_t	**ft_import_img(void)
+void	ft_import_img(t_map *map)
 {
-	mlx_texture_t **img;
 
-	ft_memset(&img, 0, sizeof(mlx_texture_t));
-	img[WALL] = mlx_load_png(WALL_IMG);
-	if (!img[WALL])
+
+	map->img->t_wall = mlx_load_png(WALL_IMG);
+	if (map->img->t_wall == NULL)
 		ft_error(IMG_ERR);
-	img[BG] = mlx_load_png(BG_IMG);
-	if (!BG)
+	map->img->t_background = mlx_load_png(BG_IMG);
+	if (map->img->t_background == NULL)
 		ft_error(IMG_ERR);
-	img[PLAYER] = mlx_load_png(PLAYER_IMG);
-	if (img[PLAYER])
+	map->img->t_player = mlx_load_png(PLAYER_IMG);
+	if (map->img->t_player == NULL)
 		ft_error(IMG_ERR);
-	img[TACOS] = mlx_load_png(COL_IMG);
-	if (!img[TACOS])
+	map->img->t_collectible = mlx_load_png(COL_IMG);
+	if (map->img->t_collectible == NULL)
 		ft_error(IMG_ERR);
-	img[EXIT] = mlx_load_png(EXIT_IMG);
-	if (!img[EXIT])
+	map->img->t_exit = mlx_load_png(EXIT_IMG);
+	if (map->img->t_exit)
 		ft_error(IMG_ERR);
-	return (img);
+
+
 }
 
 void	ft_load_img(t_map *map, mlx_texture_t **img)

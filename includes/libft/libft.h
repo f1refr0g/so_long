@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 17:05:05 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 17:15:50 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:18:45 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 void	*ft_freeptr(void *ptr);
 void	**ft_free_array(char **array);
-char	*ft_strjoin_nonl(char const *s1, char const *s2);
+char	*ft_strjoin_nonl(char *s1, char const *s2);
 char	*ft_strdup_nonl(const char *s1);
 void	ft_error(char *err);
 

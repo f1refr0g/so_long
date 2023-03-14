@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 17:55:40 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:50:15 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,15 @@
 
 typedef struct s_img {
 	void	*player;
+	mlx_texture_t *t_player;
 	void	*wall;
+	mlx_texture_t *t_wall;
 	void	*exit;
+	mlx_texture_t *t_exit;
 	void	*background;
+	mlx_texture_t *t_background;
 	void	*collectible;
+	mlx_texture_t *t_collectible;
 }			t_img;
 
 typedef struct s_mlx
@@ -72,6 +77,9 @@ typedef struct s_map{
 void	read_map(char *file, t_map *map);
 void	ft_map_init(char *file, t_map *map);
 void	ft_check_ext(char *file);
+mlx_texture_t	**ft_import_img(void);
+void	ft_load_img(t_map *map, mlx_texture_t **img);
+void	print_img(t_map *map);
 #endif 
 
 // PROGRAM MANAGEMENT
