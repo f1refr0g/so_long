@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 19:50:15 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/20 08:21:06 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,23 @@
 # define WRG_ARG "Wrong number of argument."
 
 // IMAGE
-# define PLAYER_IMG "../ressources/frog.png"
-# define PLAYER 0
-# define WALL_IMG "../ressources/wall.png"
-# define WALL 1
-# define BG_IMG "../ressources/background.png"
-# define BG 2
-# define COL_IMG "../ressource/tacos.png"
-# define TACOS 3
-# define EXIT_IMG "../ressource/Lily_Pad.png"
-#define EXIT 4
+# define PLAYER_IMG "../ressources/frog.xpm42"
+# define WALL_IMG "../ressources/wall.xpm42"
+# define BG_IMG "../ressources/background.xpm42"
+# define COL_IMG "../ressource/tacos.xpm42"
+# define EXIT_IMG "../ressource/Lily_Pad.xpm42"
 
 typedef struct s_img {
 	void	*player;
-	mlx_texture_t *t_player;
+	xpm_t	*t_player;
 	void	*wall;
-	mlx_texture_t *t_wall;
+	xpm_t	*t_wall;
 	void	*exit;
-	mlx_texture_t *t_exit;
+	xpm_t	*t_exit;
 	void	*background;
-	mlx_texture_t *t_background;
+	xpm_t	*t_background;
 	void	*collectible;
-	mlx_texture_t *t_collectible;
+	xpm_t	*t_collectible;
 }			t_img;
 
 typedef struct s_mlx
@@ -77,8 +72,8 @@ typedef struct s_map{
 void	read_map(char *file, t_map *map);
 void	ft_map_init(char *file, t_map *map);
 void	ft_check_ext(char *file);
-mlx_texture_t	**ft_import_img(void);
-void	ft_load_img(t_map *map, mlx_texture_t **img);
+void	ft_import_img(t_map *map);
+void	ft_load_img(t_map *map );
 void	print_img(t_map *map);
 #endif 
 

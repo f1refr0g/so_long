@@ -43,7 +43,7 @@ Use this script if you wish to use the XPM42 file format.
 
 ## Example
 
-```C
+``
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>

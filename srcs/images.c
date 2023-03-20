@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 19:53:28 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/20 08:37:59 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,43 @@
 
 void	ft_import_img(t_map *map)
 {
-
-
-	map->img->t_wall = mlx_load_png(WALL_IMG);
+	printf("import 1");
+	map->img->t_wall = mlx_load_xpm42(WALL_IMG);
+	printf("import 2");
 	if (map->img->t_wall == NULL)
 		ft_error(IMG_ERR);
-	map->img->t_background = mlx_load_png(BG_IMG);
+	map->img->t_background = mlx_load_xpm42(BG_IMG);
 	if (map->img->t_background == NULL)
 		ft_error(IMG_ERR);
-	map->img->t_player = mlx_load_png(PLAYER_IMG);
+	map->img->t_player = mlx_load_xpm42(PLAYER_IMG);
 	if (map->img->t_player == NULL)
 		ft_error(IMG_ERR);
-	map->img->t_collectible = mlx_load_png(COL_IMG);
+	map->img->t_collectible = mlx_load_xpm42(COL_IMG);
 	if (map->img->t_collectible == NULL)
 		ft_error(IMG_ERR);
-	map->img->t_exit = mlx_load_png(EXIT_IMG);
+	map->img->t_exit = mlx_load_xpm42(EXIT_IMG);
 	if (map->img->t_exit)
 		ft_error(IMG_ERR);
 
 
 }
 
-void	ft_load_img(t_map *map, mlx_texture_t **img)
+void	ft_load_img(t_map *map)
 {
-	map->img->wall = mlx_texture_to_image(map->mlx,img[WALL]);
+	printf("test load 1\n");
+	map->img->wall = mlx_texture_to_image(map->mlx,	&map->img->t_wall->texture);
 	if (!map->img->wall)
 		ft_error(IMG_ERR);
-	map->img->background = mlx_texture_to_image(map->mlx, img[BG]);
+	map->img->background = mlx_texture_to_image(map->mlx, &map->img->t_background->texture);
 	if (!map->img->background) 
 		ft_error(IMG_ERR);
-	map->img->collectible = mlx_texture_to_image(map->mlx, img[TACOS]);
+	map->img->collectible = mlx_texture_to_image(map->mlx, &map->img->t_collectible->texture);
 	if (!map->img->collectible)
 		ft_error(IMG_ERR);
-	map->img->player = mlx_texture_to_image(map->mlx, img[PLAYER]);
+	map->img->player = mlx_texture_to_image(map->mlx, &map->img->t_player->texture);
 	if (!map->img->player)
 		ft_error(IMG_ERR);
-	map->img->exit = mlx_texture_to_image(map->mlx, img[EXIT]);
+	map->img->exit = mlx_texture_to_image(map->mlx, &map->img->t_exit->texture);
 	if (!map->img->exit)
 		ft_error(IMG_ERR);
 }

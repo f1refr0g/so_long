@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 19:40:19 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/20 07:25:29 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int main(int argc, char *argv[])
 		printf("Exension okay)");
 		ft_check_ext(argv[1]);
 		ft_map_init(argv[1], &map);
-		ft_load_img(&map, ft_import_img());
+		printf("test 123 \n");
+		ft_import_img(&map);
+		ft_load_img(&map);
 		map.mlx = mlx_init(1200, 1200, "So_Long", true);
 		mlx_loop(map.mlx);
 	}
