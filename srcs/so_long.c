@@ -6,16 +6,15 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 00:43:26 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:07:57 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_map	map;
-
 
 	printf("%d\n", argc);
 	if (argc == 2)
@@ -32,14 +31,10 @@ int main(int argc, char *argv[])
 		mlx_loop(map.mlx);
 		printf("free stringmap \n");
 		printf("after free\n");
-		// mlx_terminate(map.mlx);
 		free(map.img);
 		free(map.player);
 		free(map.stringmap);
-		// free(map.img);
-		// free(map.player);
 	}
 	else
 		ft_error(WRG_ARG);
-	
 }

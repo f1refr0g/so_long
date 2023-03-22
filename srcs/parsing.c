@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/21 19:24:13 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:08:36 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_squaremap(t_map *map)
 //Verify file extension
 void	ft_check_ext(char *file)
 {
-	size_t len;
+	size_t	len;
 
 	len = ft_strlen(file);
 	if (ft_strncmp(file + len -4, ".ber", len) != 0)
@@ -83,14 +83,6 @@ static void	ft_check_required(t_map *map)
 //Initiate map then validate it's okay
 void	ft_map_init(char *file, t_map *map)
 {
-	// map->collectible = 0;
-	// map->player = 0;
-	// map->exit = 0;
-	// map->x = 0;
-	// map->y = 0;
-	// map->height = 0;
-	// map->width = 0;
-	// map->step = 0;
 	read_map(file, map);
 	ft_squaremap(map);
 	ft_wallcheck(map);

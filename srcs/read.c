@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 00:39:58 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:05:06 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ void	read_map(char *file, t_map *map)
 	if (fd <= 0)
 		ft_error("Invalid FD");
 	line = get_next_line(fd);
-	// map->height = 0;
 	map->width = ft_strlen(line) - 1;
 	printf("\nwidth : %d\n", map->width);
 	map->stringmap = ft_strdup(line);
 	map->stringmap[ft_strlen(map->stringmap) - 1] = '\0';
-		free(line);
+	free(line);
 	while (line)
 	{
 		map->height++;
@@ -40,5 +39,4 @@ void	read_map(char *file, t_map *map)
 		}
 	}
 	close (fd);
-	// free (line);
 }

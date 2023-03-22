@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/21 22:53:11 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:10:47 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,17 @@ void	ft_import_img(t_map *map)
 	map->img->t_exit = mlx_load_xpm42(EXIT_IMG);
 	if (map->img->t_exit == NULL)
 		ft_error("5\n");
-
-
 }
 
 void	ft_load_img(t_map *map)
 {
 	printf("test load 1\n");
-	map->img->wall = mlx_texture_to_image(map->mlx,	&map->img->t_wall->texture);
+	map->img->wall = mlx_texture_to_image(map->mlx, &map->img->t_wall->texture);
 	if (!map->img->wall)
 		ft_error("t1");
 	printf("test laod 2\n");
 	map->img->background = mlx_texture_to_image(map->mlx, &map->img->t_background->texture);
-	if (!map->img->background) 
+	if (!map->img->background)
 		ft_error("t2");
 	map->img->collectible = mlx_texture_to_image(map->mlx, &map->img->t_collectible->texture);
 	if (!map->img->collectible)
@@ -62,7 +60,7 @@ void	print_img(t_map *map)
 	int	x;
 	int	y;
 	int	i;
-	
+
 	printf("p1\n");
 	y = 0;
 	i = 0;
@@ -81,10 +79,10 @@ void	print_img(t_map *map)
 			if (map->stringmap[i] == 'E')
 				mlx_image_to_window(map->mlx, map->img->exit, x * 50, y * 50);
 			if (map->stringmap[i] == 'P')
-				{
+			{
 				map->player->x = x;
 				map->player->y = y;
-				}
+			}
 			x++;
 			i++;
 		}

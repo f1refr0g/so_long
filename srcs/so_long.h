@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 00:10:41 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:07:22 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,24 @@
 # define UP 2
 # define DOWN 3
 
-
 typedef struct s_img {
 	mlx_image_t	*player;
-	xpm_t	*t_player;
+	xpm_t		*t_player;
 	mlx_image_t	*wall;
-	xpm_t	*t_wall;
+	xpm_t		*t_wall;
 	mlx_image_t	*exit;
-	xpm_t	*t_exit;
+	xpm_t		*t_exit;
 	mlx_image_t	*background;
-	xpm_t	*t_background;
+	xpm_t		*t_background;
 	mlx_image_t	*collectible;
-	xpm_t	*t_collectible;
+	xpm_t		*t_collectible;
 }			t_img;
 
 typedef struct s_player {
-	mlx_image_t *player;
-	xpm_t	*t_player;
-	int		x;
-	int		y;
+	mlx_image_t	*player;
+	xpm_t		*t_player;
+	int			x;
+	int			y;
 }			t_player;
 
 typedef struct s_map{
@@ -87,7 +86,7 @@ void	print_img(t_map *map);
 void	ft_loadtest(t_map *map);
 void	print_img(t_map *map);
 void	movement(mlx_key_data_t keydata, void *param);
-int	check_pos(t_map *map, int direction);
+int		check_pos(t_map *map, int direction);
 void	collect(t_map *map);
 void	free_game(t_map *map);
 char	*ft_strjoinf(char *s1, char *s2, int flag);
