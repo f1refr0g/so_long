@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:20:02 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:40:34 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void	ft_import_img(t_map *map)
 {
 	printf("import 2\n");
 	map->img = ft_malloc(sizeof(t_img), 1);
-	map->player = ft_malloc(sizeof(t_player), 1);
+	map->player = ft_malloc(sizeof(t_tp), 1);
 	map->img->t_wall = mlx_load_xpm42(WALL_IMG);
 	if (map->img->t_wall == NULL)
 		ft_error("1\n");
 	map->img->t_background = mlx_load_xpm42(BG_IMG);
 	if (map->img->t_background == NULL)
 		ft_error("2\n");
-	map->player->t_player = mlx_load_xpm42(PLAYER_IMG);
-	if (map->player->t_player == NULL)
+	map->player->tp = mlx_load_xpm42(PLAYER_IMG);
+	if (map->player->tp == NULL)
 		ft_error("3\n");
 	map->img->t_collectible = mlx_load_xpm42(COL_IMG);
 	if (map->img->t_collectible == NULL)
@@ -41,13 +41,16 @@ void	ft_load_img(t_map *map)
 	if (!map->img->wall)
 		ft_error("t1");
 	printf("test laod 2\n");
-	map->img->background = mlx_texture_to_image(map->mlx, &map->img->t_background->texture);
+	map->img->background = mlx_texture_to_image(map->mlx,
+			&map->img->t_background->texture);
 	if (!map->img->background)
 		ft_error("t2");
-	map->img->collectible = mlx_texture_to_image(map->mlx, &map->img->t_collectible->texture);
+	map->img->collectible = mlx_texture_to_image(map->mlx,
+			&map->img->t_collectible->texture);
 	if (!map->img->collectible)
 		ft_error("t3");
-	map->player->player = mlx_texture_to_image(map->mlx, &map->player->t_player->texture);
+	map->player->player = mlx_texture_to_image(map->mlx,
+			&map->player->tp->texture);
 	if (!map->img->player)
 		ft_error("t4");
 	map->img->exit = mlx_texture_to_image(map->mlx, &map->img->t_exit->texture);

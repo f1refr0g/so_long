@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:20:02 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:39:31 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@
 # define UP 2
 # define DOWN 3
 
+
 typedef struct s_img {
 	mlx_image_t	*player;
-	xpm_t		*t_player;
+	xpm_t		*tp;
 	mlx_image_t	*wall;
 	xpm_t		*t_wall;
 	mlx_image_t	*exit;
@@ -56,15 +57,15 @@ typedef struct s_img {
 
 typedef struct s_player {
 	mlx_image_t	*player;
-	xpm_t		*t_player;
+	xpm_t		*tp;
 	int			x;
 	int			y;
-}			t_player;
+}			t_tp;
 
 typedef struct s_map{
 	mlx_t			*mlx;
 	t_img			*img;
-	t_player		*player;
+	t_tp			*player;
 	int				collectible;
 	int				playercount;
 	int				exit;

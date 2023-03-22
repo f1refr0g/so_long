@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:20:02 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 04:36:05 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ void	collect(t_map *map)
 		{
 			printf("\nBRAVO VOUS AVEZ GAGNEZ\n");
 			mlx_close_window(map->mlx);
+			ft_freeptr(map->img);
+			ft_freeptr(map->player);
+			ft_freeptr(map->sm);
 		}
 	}
 }
