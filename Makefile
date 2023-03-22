@@ -6,7 +6,7 @@
 #    By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 13:54:56 by abeaudet          #+#    #+#              #
-#    Updated: 2023/03/22 00:34:42 by abeaudet         ###   ########.fr        #
+#    Updated: 2023/03/22 03:23:44 by abeaudet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,12 @@ libinit:
 		@echo "$R creation de la libft...$W"
 		@$(MAKE) -s -C ./includes/libft
 		@echo "$G libft created!$W"
+
+COMMIT = $(shell date "+%d %B %T")
+git:
+	@git add .
+	@git commit -m "$(COMMIT)"
+	@git push
 
 make_mlx: 
 		@echo "$R Creating minilibx...$W"

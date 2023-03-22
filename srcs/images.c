@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:10:47 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:20:02 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ void	print_img(t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			if (map->stringmap[i] == '0' || map->stringmap[i] == 'P' || map->stringmap[i] == 'C' || map->stringmap[i] == 'E')
+			if (map->sm[i] == '0' || map->sm[i] == 'P' || map->sm[i] == 'C' || map->sm[i] == 'E')
 				mlx_image_to_window(map->mlx, map->img->background, x * 50, y * 50);
-			if (map->stringmap[i] == '1')
+			if (map->sm[i] == '1')
 				mlx_image_to_window(map->mlx, map->img->wall, x * 50, y * 50);
-			if (map->stringmap[i] == 'C')
+			if (map->sm[i] == 'C')
 				mlx_image_to_window(map->mlx, map->img->collectible, x * 50, y * 50);
-			if (map->stringmap[i] == 'E')
+			if (map->sm[i] == 'E')
 				mlx_image_to_window(map->mlx, map->img->exit, x * 50, y * 50);
-			if (map->stringmap[i] == 'P')
+			if (map->sm[i] == 'P')
 			{
 				map->player->x = x;
 				map->player->y = y;

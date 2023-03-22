@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:08:36 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:20:02 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //Verify that the map is a rectangle
 static void	ft_squaremap(t_map *map)
 {
-	if (map->height * map->width != ((int)ft_strlen(map->stringmap)))
+	if (map->height * map->width != ((int)ft_strlen(map->sm)))
 		ft_error("Map not rectangle or square \n");
 }
 
@@ -35,21 +35,21 @@ static void	ft_wallcheck(t_map *map)
 	size_t	i;
 
 	i = 0;
-	while (i < ft_strlen(map->stringmap))
+	while (i < ft_strlen(map->sm))
 	{
 		if (i < (size_t)map->width)
 		{
-			if (map->stringmap[i] != '1')
+			if (map->sm[i] != '1')
 				ft_error("Map contour must be wall only. \n");
 		}
 		else if (i % map->width == 0 || i % map->width == map->width - 1)
 		{
-			if (map->stringmap[i] != '1')
+			if (map->sm[i] != '1')
 				ft_error("Map contour must be wall only.\n");
 		}
-		else if (i > ft_strlen(map->stringmap) - map->width)
+		else if (i > ft_strlen(map->sm) - map->width)
 		{
-			if (map->stringmap[i] != '1')
+			if (map->sm[i] != '1')
 				ft_error("Map contour must be wall only.\n");
 		}
 		i++;
@@ -62,13 +62,13 @@ static void	ft_check_required(t_map *map)
 	size_t		i;
 
 	i = 0;
-	while (i < ft_strlen(map->stringmap))
+	while (i < ft_strlen(map->sm))
 	{
-		if (map->stringmap[i] == 'E')
+		if (map->sm[i] == 'E')
 			map->exit += 1;
-		else if (map->stringmap[i] == 'C')
+		else if (map->sm[i] == 'C')
 			map->collectible += 1;
-		else if (map->stringmap[i] == 'P')
+		else if (map->sm[i] == 'P')
 			map->playercount += 1;
 		i++;
 	}

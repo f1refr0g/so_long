@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:11:12 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 03:20:02 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,22 @@ int	check_pos(t_map *map, int direction)
 {
 	if (direction == LEFT)
 	{
-		if (map->stringmap[map->player->y * map->width + map->player->x -1] == '1')
+		if (map->sm[map->player->y * map->width + map->player->x -1] == '1')
 			return (0);
 	}
 	if (direction == RIGHT)
 	{
-		if (map->stringmap[map->player->y * map->width + map->player->x + 1] == '1')
+		if (map->sm[map->player->y * map->width + map->player->x + 1] == '1')
 			return (0);
 	}
 	if (direction == UP)
 	{
-		if (map->stringmap[(map->player->y -1) * map->width + map->player->x] == '1')
+		if (map->sm[(map->player->y -1) * map->width + map->player->x] == '1')
 			return (0);
 	}
 	if (direction == DOWN)
 	{
-		if (map->stringmap[(map->player->y +1) * map->width + map->player->x] == '1')
+		if (map->sm[(map->player->y +1) * map->width + map->player->x] == '1')
 			return (0);
 	}
 	return (1);
