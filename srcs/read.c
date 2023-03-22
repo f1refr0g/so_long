@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 19:28:24 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 00:39:58 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,12 @@ void	read_map(char *file, t_map *map)
 		line = get_next_line(fd);
 		if (line)
 		{
-			map->stringmap = ft_strjoin(map->stringmap, line);
+			map->stringmap = ft_strjoinf(map->stringmap, line, 1);
 			printf("Stringmap : %s\n", map->stringmap);
 			map->stringmap[ft_strlen(map->stringmap) - 1] = '\0';
 			free(line);
 		}
 	}
 	close (fd);
-	printf("\n Hauteur : %d\n", map->height);
-	printf("\n Stringmap : %d\n", (int)ft_strlen(map->stringmap));
-	printf("\n Stringmap \n%s\n", map->stringmap);
-	free (line);
+	// free (line);
 }

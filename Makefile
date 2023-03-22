@@ -6,7 +6,7 @@
 #    By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 13:54:56 by abeaudet          #+#    #+#              #
-#    Updated: 2023/03/14 17:12:56 by abeaudet         ###   ########.fr        #
+#    Updated: 2023/03/22 00:34:42 by abeaudet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ SRCS_FILES = 	parsing.c\
 				get_next_line.c\
 				get_next_line_utils.c\
 				so_long.c\
-				draw.c\
+				controls.c\
 				images.c\
+				utils.c\
 
 SRCS = $(addprefix $S, $(SRCS_FILES))
 
@@ -41,6 +42,7 @@ $O%.o: $S%
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
+SFLAGS = -fsanitize=address
 
 all: libinit make_mlx $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/20 09:31:19 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 00:43:26 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,30 @@ int main(int argc, char *argv[])
 {
 	t_map	map;
 
+
 	printf("%d\n", argc);
 	if (argc == 2)
 	{
-		printf("Exension okay)");
 		ft_memset(&map, 0, sizeof(t_map));
-		printf("Exension okay)");
 		ft_check_ext(argv[1]);
 		ft_map_init(argv[1], &map);
-		ft_memset(map.img, 0, sizeof(t_img));
-		printf("test 123 \n");
+		map.mlx = mlx_init(map.width * 50, map.height * 50, "So_Long", false);
+		printf("%d\n%d URHRU\n", map.height, map.width);
 		ft_import_img(&map);
 		ft_load_img(&map);
-		map.mlx = mlx_init(1200, 1200, "So_Long", true);
+		print_img(&map);
+		mlx_key_hook(map.mlx, &movement, &map);
 		mlx_loop(map.mlx);
+		printf("free stringmap \n");
+		printf("after free\n");
+		// mlx_terminate(map.mlx);
+		free(map.img);
+		free(map.player);
+		free(map.stringmap);
+		// free(map.img);
+		// free(map.player);
 	}
 	else
 		ft_error(WRG_ARG);
-	printf("Exension okay)");
 	
 }

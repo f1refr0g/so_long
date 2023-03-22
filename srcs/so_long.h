@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/20 08:21:06 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/22 00:10:41 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,51 +20,60 @@
 # include "fcntl.h"
 
 // ERROR MESSAGE
-# define INVALID_CHAR "Error : undefined character"
-# define TOOMANY_CHAR "Error : Too many player instance."
-# define WALL_ERROR "Error : No wall"
-# define TOO_MANY_EXIT "Error : Too many exit."
-# define WRONG_EXT "Error : Wrong file extension."
-# define IMG_ERR "Error loading images."
-# define WRG_ARG "Wrong number of argument."
+# define INVALID_CHAR "Error : undefined character\n"
+# define TOOMANY_CHAR "Error : Too many player instance.\n"
+# define WALL_ERROR "Error : No wall\n"
+# define TOO_MANY_EXIT "Error : Too many exit.\n"
+# define WRONG_EXT "Error : Wrong file extension.\n"
+# define IMG_ERR "Error loading images\n."
+# define WRG_ARG "Wrong number of argument.\n"
 
 // IMAGE
-# define PLAYER_IMG "../ressources/frog.xpm42"
-# define WALL_IMG "../ressources/wall.xpm42"
-# define BG_IMG "../ressources/background.xpm42"
-# define COL_IMG "../ressource/tacos.xpm42"
-# define EXIT_IMG "../ressource/Lily_Pad.xpm42"
+# define PLAYER_IMG "./ressources/frog.xpm42"
+# define WALL_IMG "./ressources/wall.xpm42"
+# define BG_IMG "./ressources/background.xpm42"
+# define COL_IMG "./ressources/tacos.xpm42"
+# define EXIT_IMG "./ressources/Lily_Pad.xpm42"
+
+// MOVEMENT
+# define LEFT 0
+# define RIGHT 1
+# define UP 2
+# define DOWN 3
+
 
 typedef struct s_img {
-	void	*player;
+	mlx_image_t	*player;
 	xpm_t	*t_player;
-	void	*wall;
+	mlx_image_t	*wall;
 	xpm_t	*t_wall;
-	void	*exit;
+	mlx_image_t	*exit;
 	xpm_t	*t_exit;
-	void	*background;
+	mlx_image_t	*background;
 	xpm_t	*t_background;
-	void	*collectible;
+	mlx_image_t	*collectible;
 	xpm_t	*t_collectible;
 }			t_img;
 
-typedef struct s_mlx
-{
-	void		*mlx;
-}				t_mlx;
+typedef struct s_player {
+	mlx_image_t *player;
+	xpm_t	*t_player;
+	int		x;
+	int		y;
+}			t_player;
 
 typedef struct s_map{
 	mlx_t			*mlx;
 	t_img			*img;
-	mlx_image_t		*mlximg;
+	t_player		*player;
 	int				collectible;
-	int				player;
+	int				playercount;
 	int				exit;
 	int				width;
 	int				height;
 	int				x;
 	int				y;
-	int				step;
+	// int				step;
 	char			*stringmap;	
 }				t_map;
 // MAP RELATED
@@ -75,6 +84,13 @@ void	ft_check_ext(char *file);
 void	ft_import_img(t_map *map);
 void	ft_load_img(t_map *map );
 void	print_img(t_map *map);
+void	ft_loadtest(t_map *map);
+void	print_img(t_map *map);
+void	movement(mlx_key_data_t keydata, void *param);
+int	check_pos(t_map *map, int direction);
+void	collect(t_map *map);
+void	free_game(t_map *map);
+char	*ft_strjoinf(char *s1, char *s2, int flag);
 #endif 
 
 // PROGRAM MANAGEMENT

@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/14 19:29:47 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:24:13 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ static void	ft_check_required(t_map *map)
 		else if (map->stringmap[i] == 'C')
 			map->collectible += 1;
 		else if (map->stringmap[i] == 'P')
-			map->player += 1;
+			map->playercount += 1;
 		i++;
 	}
 	if (map->exit != 1)
 		ft_error("Map must have one exit.\n");
 	if (map->collectible <= 0)
 		ft_error("Map must have at least one collectible.\n");
-	if (map->player != 1)
+	if (map->playercount != 1)
 		ft_error("Map must have one player.\n");
 }
 
