@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 04:36:05 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:00:43 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	collect(t_map *map)
 	i = 0;
 	col_x = 0;
 	col_y = 0;
-	while (i <= map->collectible)
+	while (i < map->collectible)
 	{
 		col_y = map->img->collectible->instances[i].y / 50;
 		col_x = map->img->collectible->instances[i].x / 50;
@@ -91,13 +91,11 @@ void	collect(t_map *map)
 	printf("%d", map->collectible);
 	if (map->collectible == 0)
 	{
-		if (map->img->exit->instances[0].y / 50 == map->player->y && map->img->exit->instances[0].x / 50 == map->player->x)
+		if (map->img->exit->instances[0].y / 50 == map->player->y && \
+			map->img->exit->instances[0].x / 50 == map->player->x)
 		{
 			printf("\nBRAVO VOUS AVEZ GAGNEZ\n");
 			mlx_close_window(map->mlx);
-			ft_freeptr(map->img);
-			ft_freeptr(map->player);
-			ft_freeptr(map->sm);
 		}
 	}
 }

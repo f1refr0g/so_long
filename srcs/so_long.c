@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 04:32:07 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:06:02 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ int	main(int argc, char *argv[])
 		mlx_loop(map.mlx);
 		printf("free sm \n");
 		printf("after free\n");
-		// mlx_terminate(map.mlx);
 		// free(&map);
 		// ft_freeptr(map.img);
 		// ft_freeptr(map.player);
-		// ft_freeptr(map.sm);
+		if(map.sm)
+			ft_freeptr(map.sm);
+		mlx_terminate(map.mlx);
 	}
 	else
 		ft_error(WRG_ARG);

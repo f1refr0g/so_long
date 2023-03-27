@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:39:31 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:03:14 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct s_img {
 	xpm_t		*t_wall;
 	mlx_image_t	*exit;
 	xpm_t		*t_exit;
-	mlx_image_t	*background;
-	xpm_t		*t_background;
+	mlx_image_t	*bg;
+	xpm_t		*t_bg;
 	mlx_image_t	*collectible;
 	xpm_t		*t_collectible;
 }			t_img;

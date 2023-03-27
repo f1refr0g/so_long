@@ -6,7 +6,7 @@
 #    By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 13:54:56 by abeaudet          #+#    #+#              #
-#    Updated: 2023/03/22 03:23:44 by abeaudet         ###   ########.fr        #
+#    Updated: 2023/03/27 14:42:21 by abeaudet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $O%.o: $S%
 # BONUS_OBJS = $(BONUS:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 SFLAGS = -fsanitize=address
 
 all: libinit make_mlx $(NAME)

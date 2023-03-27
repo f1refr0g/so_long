@@ -6,12 +6,13 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:40:34 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:03:42 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+// verifier malloc, et essayer memset au lieu de malloc pour player et mapimg.
 void	ft_import_img(t_map *map)
 {
 	printf("import 2\n");
@@ -20,8 +21,8 @@ void	ft_import_img(t_map *map)
 	map->img->t_wall = mlx_load_xpm42(WALL_IMG);
 	if (map->img->t_wall == NULL)
 		ft_error("1\n");
-	map->img->t_background = mlx_load_xpm42(BG_IMG);
-	if (map->img->t_background == NULL)
+	map->img->t_bg = mlx_load_xpm42(BG_IMG);
+	if (map->img->t_bg == NULL)
 		ft_error("2\n");
 	map->player->tp = mlx_load_xpm42(PLAYER_IMG);
 	if (map->player->tp == NULL)
@@ -41,9 +42,9 @@ void	ft_load_img(t_map *map)
 	if (!map->img->wall)
 		ft_error("t1");
 	printf("test laod 2\n");
-	map->img->background = mlx_texture_to_image(map->mlx,
-			&map->img->t_background->texture);
-	if (!map->img->background)
+	map->img->bg = mlx_texture_to_image(map->mlx,
+			&map->img->t_bg->texture);
+	if (!map->img->bg)
 		ft_error("t2");
 	map->img->collectible = mlx_texture_to_image(map->mlx,
 			&map->img->t_collectible->texture);
@@ -73,12 +74,14 @@ void	print_img(t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			if (map->sm[i] == '0' || map->sm[i] == 'P' || map->sm[i] == 'C' || map->sm[i] == 'E')
-				mlx_image_to_window(map->mlx, map->img->background, x * 50, y * 50);
+			if (map->sm[i] == '0' || map->sm[i] == 'P' || \
+			map->sm[i] == 'C' || map->sm[i] == 'E')
+				mlx_image_to_window(map->mlx, map->img->bg, x * 50, y * 50);
 			if (map->sm[i] == '1')
 				mlx_image_to_window(map->mlx, map->img->wall, x * 50, y * 50);
 			if (map->sm[i] == 'C')
-				mlx_image_to_window(map->mlx, map->img->collectible, x * 50, y * 50);
+				mlx_image_to_window(map->mlx, \
+				map->img->collectible, x * 50, y * 50);
 			if (map->sm[i] == 'E')
 				mlx_image_to_window(map->mlx, map->img->exit, x * 50, y * 50);
 			if (map->sm[i] == 'P')
@@ -91,5 +94,6 @@ void	print_img(t_map *map)
 		}
 	y++;
 	}
-	mlx_image_to_window(map->mlx, map->player->player, map->player->x * 50, map->player->y * 50);
+	mlx_image_to_window(map->mlx, map->player->player, \
+	map->player->x * 50, map->player->y * 50);
 }
