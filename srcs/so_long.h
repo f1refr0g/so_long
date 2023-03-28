@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/27 16:34:10 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:56:47 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct s_map{
 	int				height;
 	int				x;
 	int				y;
-	// int				step;
+	int				step;
 	char			*sm;	
 }				t_map;
 // MAP RELATED
@@ -91,6 +91,7 @@ int		check_pos(t_map *map, int direction);
 void	collect(t_map *map);
 void	free_game(t_map *map);
 char	*ft_strjoinf(char *s1, char *s2, int flag);
+void	ft_move(t_map *map, char axis, int dst);
 #endif 
 
 // PROGRAM MANAGEMENT

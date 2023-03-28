@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:20:02 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:58:09 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void	ft_map_init(char *file, t_map *map)
 	ft_squaremap(map);
 	ft_wallcheck(map);
 	ft_check_required(map);
+	map->step = 0;
 }

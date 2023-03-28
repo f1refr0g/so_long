@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/27 16:34:28 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:09:50 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ void	print_img(t_map *map)
 	int	i;
 
 	printf("p1\n");
-	y = 0;
+	y = -1;
 	i = 0;
 	printf("%d\n", map->height);
-	while (y < map->height)
+	while (++y < map->height)
 	{
-		x = 0;
-		while (x < map->width)
+		x = -1;
+		while (++x < map->width)
 		{
 			if (map->sm[i] == '0' || map->sm[i] == 'P' || \
 			map->sm[i] == 'C' || map->sm[i] == 'E')
@@ -89,10 +89,8 @@ void	print_img(t_map *map)
 				map->player->x = x;
 				map->player->y = y;
 			}
-			x++;
 			i++;
 		}
-	y++;
 	}
 	mlx_image_to_window(map->mlx, map->player->player, \
 	map->player->x * 50, map->player->y * 50);

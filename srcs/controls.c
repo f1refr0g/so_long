@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/27 16:00:43 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:58:43 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,42 @@ void	movement(mlx_key_data_t keydata, void *param)
 	t_map	*map;
 
 	map = (t_map *) param;
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS && check_pos(map, UP) == 1)
+	if (keydata.key == MLX_KEY_W && keydata.action
+		== MLX_PRESS && check_pos(map, UP) == 1)
 	{
-		map->player->player->instances[0].y -= 50;
-		map->player->y -= 1;
+		ft_move(map, 'y', -50);
+	}
+	if (keydata.key == MLX_KEY_S && keydata.action
+		== MLX_PRESS && check_pos(map, DOWN) == 1)
+	{
+		ft_move(map, 'y', 50);
+	}
+	if (keydata.key == MLX_KEY_A && keydata.action
+		== MLX_PRESS && check_pos(map, LEFT) == 1)
+	{
+		ft_move(map, 'x', -50);
+	}
+	if (keydata.key == MLX_KEY_D && keydata.action
+		== MLX_PRESS && check_pos(map, RIGHT) == 1)
+	{
+		ft_move(map, 'x', 50);
+	}
+}
+
+void	ft_move(t_map *map, char axis, int dst)
+{
+	if (axis == 'y')
+	{
+		map->player->player->instances[0].y += dst;
+		map->player->y += dst / 50;
+		map->step++;
 		collect(map);
 	}
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS && check_pos(map, DOWN) == 1)
+	if (axis == 'x')
 	{
-		map->player->player->instances[0].y += 50;
-		map->player->y += 1;
-		collect(map);
-	}
-	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS && check_pos(map, LEFT) == 1)
-	{
-		map->player->player->instances[0].x -= 50;
-		map->player->x -= 1;
-		collect(map);
-	}
-	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS && check_pos(map, RIGHT) == 1)
-	{
-		map->player->player->instances[0].x += 50;
-		map->player->x += 1;
+		map->player->player->instances[0].x += dst;
+		map->player->x += dst / 50;
+		map->step++;
 		collect(map);
 	}
 }
@@ -74,10 +88,10 @@ void	collect(t_map *map)
 	int	col_x;
 	int	col_y;
 
-	i = 0;
+	i = -1;
 	col_x = 0;
 	col_y = 0;
-	while (i < map->collectible)
+	while (++i < map->collectible)
 	{
 		col_y = map->img->collectible->instances[i].y / 50;
 		col_x = map->img->collectible->instances[i].x / 50;
@@ -86,15 +100,12 @@ void	collect(t_map *map)
 				map->collectible--;
 				map->img->collectible->instances[i].enabled = false;
 		}
-		i++;
 	}
-	printf("%d", map->collectible);
 	if (map->collectible == 0)
 	{
 		if (map->img->exit->instances[0].y / 50 == map->player->y && \
 			map->img->exit->instances[0].x / 50 == map->player->x)
 		{
-			printf("\nBRAVO VOUS AVEZ GAGNEZ\n");
 			mlx_close_window(map->mlx);
 		}
 	}
