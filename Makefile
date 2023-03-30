@@ -6,7 +6,7 @@
 #    By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 13:54:56 by abeaudet          #+#    #+#              #
-#    Updated: 2023/03/27 14:42:21 by abeaudet         ###   ########.fr        #
+#    Updated: 2023/03/29 20:37:42 by abeaudet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS_FILES = 	parsing.c\
 				controls.c\
 				images.c\
 				utils.c\
+				simulate.c\
 
 SRCS = $(addprefix $S, $(SRCS_FILES))
 

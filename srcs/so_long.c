@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/28 11:59:26 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:37:57 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	main(int argc, char *argv[])
 		map.mlx = mlx_init(map.width * 50, map.height * 50, "So_Long", false);
 		ft_import_img(&map);
 		ft_load_img(&map);
+		printf("main1\n");
+		simulate_map(&map);
+		printf("main2\n");
 		print_img(&map);
 		mlx_key_hook(map.mlx, &movement, &map);
 		mlx_loop(map.mlx);

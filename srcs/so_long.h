@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/28 11:56:47 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:37:51 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ typedef struct s_player {
 	int			y;
 }			t_tp;
 
+typedef struct s_vector2 {
+	int	x;
+	int	y;
+}			t_vector2;
+
 typedef struct s_map{
 	mlx_t			*mlx;
 	t_img			*img;
@@ -92,6 +97,9 @@ void	collect(t_map *map);
 void	free_game(t_map *map);
 char	*ft_strjoinf(char *s1, char *s2, int flag);
 void	ft_move(t_map *map, char axis, int dst);
+void	simulate_map(t_map *map);
+void	flood(char *sm, t_vector2 size, t_vector2 *pos);
+void	lookstring(char	*sm);
 #endif 
 
 // PROGRAM MANAGEMENT
