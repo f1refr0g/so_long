@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:31:11 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/22 03:05:12 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/30 23:13:18 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,8 @@ char	*ft_strjoinf(char *s1, char *s2, int flag)
 		free(s1);
 	return (s);
 }
+
+// void	error_exit(char *msg)
+// {
+	
+// }

@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/29 20:37:51 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:38:35 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,17 +89,18 @@ void	ft_check_ext(char *file);
 void	ft_import_img(t_map *map);
 void	ft_load_img(t_map *map );
 void	print_img(t_map *map);
-void	ft_loadtest(t_map *map);
 void	print_img(t_map *map);
 void	movement(mlx_key_data_t keydata, void *param);
 int		check_pos(t_map *map, int direction);
 void	collect(t_map *map);
-void	free_game(t_map *map);
 char	*ft_strjoinf(char *s1, char *s2, int flag);
 void	ft_move(t_map *map, char axis, int dst);
 void	simulate_map(t_map *map);
-void	flood(char *sm, t_vector2 size, t_vector2 *pos);
+void	flood(char *sm, t_vector2 size, t_vector2 pos);
 void	lookstring(char	*sm);
+
+// fonction a delete
+void	printpos(t_vector2 pos);
 #endif 
 
 // PROGRAM MANAGEMENT
