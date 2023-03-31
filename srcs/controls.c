@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/31 04:24:30 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 18:57:40 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,25 +98,37 @@ void	collect(t_map *map)
 	i = -1;
 	col_x = 0;
 	col_y = 0;
-	while (map->collectible != 0)
+	while (++i < map->collectible)
 	{
 		col_y = map->img->collectible->instances[i].y / 50;
-		printf("coly : %d\n", map->img->collectible->instances[i].y / 50 );
+		printf("coly : %d\n", map->img->collectible->instances[i].y / 50);
 		col_x = map->img->collectible->instances[i].x / 50;
-		printf("colx : %d\n", map->img->collectible->instances[i].x / 50 );
+		printf("colx : %d\n", map->img->collectible->instances[i].x / 50);
 		if (col_y == map->player->y && col_x == map->player->x)
 		{
 				map->collectible--;
-				map->img->collectible->instances[i].enabled = false;
+			map->img->collectible->instances[i].enabled = false;
 		}
 	}
 	if (map->collectible == 0)
 	{
 		if (map->img->exit->instances[0].y / 50 == map->player->y && \
 			map->img->exit->instances[0].x / 50 == map->player->x)
-		{
 			ft_exit(map);
-		}
 	}
+}
+
+int	check_col_pos(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->img->collectible->count)
+	{
+		if (map->img->collectible->instances[i].y / 50 == map->player->y
+			&& map->img->collectible->instances[i].x / 50 == map->player->x)
+			return (i);
 	i++;
+	}
+	return (0);
 }
