@@ -6,12 +6,13 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/28 11:58:43 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 03:02:38 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+//Function that receive keyn put and call the move function.
 void	movement(mlx_key_data_t keydata, void *param)
 {
 	t_map	*map;
@@ -37,8 +38,11 @@ void	movement(mlx_key_data_t keydata, void *param)
 	{
 		ft_move(map, 'x', 50);
 	}
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		exit(0);
 }
 
+//Function that move the player 
 void	ft_move(t_map *map, char axis, int dst)
 {
 	if (axis == 'y')
@@ -55,8 +59,10 @@ void	ft_move(t_map *map, char axis, int dst)
 		map->step++;
 		collect(map);
 	}
+	printf("Position X : %d Y : %d\n", map->player->x, map->player->y);
 }
 
+//check if player can proceed to next tile
 int	check_pos(t_map *map, int direction)
 {
 	if (direction == LEFT)
@@ -82,6 +88,7 @@ int	check_pos(t_map *map, int direction)
 	return (1);
 }
 
+//Function call for everymove to verify if player step on collectible.
 void	collect(t_map *map)
 {
 	int	i;

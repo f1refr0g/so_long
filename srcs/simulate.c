@@ -6,33 +6,44 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:52:32 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/30 23:24:08 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:20:30 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+//Floodfill recrusive function to check if collectible are accessible
 void	flood(char *sm, t_vector2 size, t_vector2 pos)
 {
-	if (sm[pos.y * size.x + pos.x - 1] != '1' && sm[pos.y * size.x + pos.x - 1] != 'F')
+	if (sm[pos.y * size.x + pos.x - 1] != '1'
+		&& sm[pos.y * size.x + pos.x - 1] != 'F')
 	{
 		sm[pos.y * size.x + pos.x - 1] = 'F';
 		pos.x -= 1;
 		flood(sm, size, pos);
 	}
-	if (sm[(pos.y -1) * size.x + pos.x] != '1' && sm[(pos.y -1) * size.x + pos.x] != 'F')
+	if (sm[(pos.y -1) * size.x + pos.x] != '1'
+		&& sm[(pos.y -1) * size.x + pos.x] != 'F')
 	{
 		sm[(pos.y -1) * size.x + pos.x] = 'F';
 		pos.y -= 1;
 		flood(sm, size, pos);
 	}
-		if (sm[pos.y * size.x + pos.x + 1] != '1' && sm[pos.y * size.x + pos.x + 1] != 'F')
+	flood2(sm, size, pos);
+}
+
+//Second function to floodfill.
+void	flood2(char *sm, t_vector2 size, t_vector2 pos)
+{
+	if (sm[pos.y * size.x + pos.x + 1] != '1'
+		&& sm[pos.y * size.x + pos.x + 1] != 'F')
 	{
 		sm[pos.y * size.x + pos.x + 1] = 'F';
 		pos.x += 1;
 		flood(sm, size, pos);
 	}
-	if (sm[(pos.y + 1) * size.x + pos.x] != '1' && sm[(pos.y + 1) * size.x + pos.x] != 'F')
+	if (sm[(pos.y + 1) * size.x + pos.x] != '1'
+		&& sm[(pos.y + 1) * size.x + pos.x] != 'F')
 	{
 		sm[(pos.y + 1) * size.x + pos.x] = 'F';
 		pos.y += 1;
@@ -40,9 +51,12 @@ void	flood(char *sm, t_vector2 size, t_vector2 pos)
 	}
 }
 
+//Verify the flooded string to see if there is any E or C left.
+//If not then map is valid.
 void	lookstring(char	*sm)
 {
 	size_t	i;
+
 	i = 0;
 	while (sm && i < ft_strlen(sm))
 	{
@@ -52,6 +66,7 @@ void	lookstring(char	*sm)
 	}
 }
 
+//Function to create a temp stringmap for the flood function.
 void	simulate_map(t_map *map)
 {
 	char		*temp_map;
@@ -66,10 +81,4 @@ void	simulate_map(t_map *map)
 	flood(temp_map, mapsize, pos);
 	lookstring(temp_map);
 	free(temp_map);
-}
-
-void	printpos(t_vector2 pos)
-{
-	printf("x1 : %d\n", pos.x);
-	printf("y1 : %d\n", pos.y);
 }

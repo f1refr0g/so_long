@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/30 23:22:25 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/30 23:57:16 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ static void	ft_check_required(t_map *map)
 //Initiate map then validate it's okay
 void	ft_map_init(char *file, t_map *map)
 {
-	int x;
-	int y;
-	int i;
+	int	x;
+	int	y;
+	int	i;
 
 	i = -1;
 	y = -1;

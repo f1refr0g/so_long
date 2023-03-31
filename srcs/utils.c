@@ -6,12 +6,13 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:31:11 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/30 23:13:18 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:56:08 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+//Str join that remove the \n at the end and not remalloc over.
 char	*ft_strjoinf(char *s1, char *s2, int flag)
 {
 	char	*s;
@@ -40,7 +41,14 @@ char	*ft_strjoinf(char *s1, char *s2, int flag)
 	return (s);
 }
 
-// void	error_exit(char *msg)
-// {
-	
-// }
+//Cleaning texture
+void	ft_destroy(t_map *map)
+{
+	mlx_delete_texture(&map->img->t_bg->texture);
+	mlx_delete_texture(&map->img->t_collectible->texture);
+	// mlx_delete_texture(map->img->t_exit);
+	mlx_delete_texture(&map->img->t_exit->texture);
+	mlx_delete_texture(&map->img->t_wall->texture);
+	// mlx_delete_texture(map->img->tp);
+	mlx_delete_texture(&map->player->tp->texture);
+}

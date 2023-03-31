@@ -6,57 +6,56 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:13:29 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/30 23:35:02 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:36:40 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// verifier malloc, et essayer memset au lieu de malloc pour player et mapimg.
+// load texture to the struct.
 void	ft_import_img(t_map *map)
 {
-	printf("import 2\n");
-	// map->img = ft_malloc(sizeof(t_img), 1);
-	// map->player = ft_malloc(sizeof(t_tp), 1);
 	map->img->t_wall = mlx_load_xpm42(WALL_IMG);
 	if (map->img->t_wall == NULL)
-		ft_error("1\n");
+		ft_error(IMG_ERR);
 	map->img->t_bg = mlx_load_xpm42(BG_IMG);
 	if (map->img->t_bg == NULL)
-		ft_error("2\n");
+		ft_error(IMG_ERR);
 	map->player->tp = mlx_load_xpm42(PLAYER_IMG);
 	if (map->player->tp == NULL)
-		ft_error("3\n");
+		ft_error(IMG_ERR);
 	map->img->t_collectible = mlx_load_xpm42(COL_IMG);
 	if (map->img->t_collectible == NULL)
-		ft_error("4\n");
+		ft_error(IMG_ERR);
 	map->img->t_exit = mlx_load_xpm42(EXIT_IMG);
 	if (map->img->t_exit == NULL)
-		ft_error("5\n");
+		ft_error(IMG_ERR);
 }
 
+// convert texture to mlx img.
 void	ft_load_img(t_map *map)
 {
 	map->img->wall = mlx_texture_to_image(map->mlx, &map->img->t_wall->texture);
 	if (!map->img->wall)
-		ft_error("t1");
+		ft_error(IMG_ERR);
 	map->img->bg = mlx_texture_to_image(map->mlx,
 			&map->img->t_bg->texture);
 	if (!map->img->bg)
-		ft_error("t2");
+		ft_error(IMG_ERR);
 	map->img->collectible = mlx_texture_to_image(map->mlx,
 			&map->img->t_collectible->texture);
 	if (!map->img->collectible)
-		ft_error("t3");
+		ft_error(IMG_ERR);
 	map->player->player = mlx_texture_to_image(map->mlx,
 			&map->player->tp->texture);
 	if (!map->player->player)
-		ft_error("t4");
+		ft_error(IMG_ERR);
 	map->img->exit = mlx_texture_to_image(map->mlx, &map->img->t_exit->texture);
 	if (!map->img->exit)
-		ft_error("t5");
+		ft_error(IMG_ERR);
 }
 
+//Print the map layout then the player.
 void	print_img(t_map *map)
 {
 	int	x;

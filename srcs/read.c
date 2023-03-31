@@ -6,12 +6,13 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/30 20:27:33 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:18:27 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+//Read the map and store it in a string
 void	read_map(char *file, t_map *map)
 {
 	int		fd;
