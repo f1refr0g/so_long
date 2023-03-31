@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/31 02:59:46 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 03:49:01 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,9 @@ int	main(int argc, char *argv[])
 		print_img(&map);
 		mlx_key_hook(map.mlx, &movement, &map);
 		mlx_loop(map.mlx);
-		ft_freeptr(map.img);
-		ft_freeptr(map.player);
-		if (map.sm)
-			ft_freeptr(map.sm);
 		printf("\nstep : %d\n", map.step);
-		ft_destroy(&map);
-		mlx_terminate(map.mlx);
 	}
 	else
 		ft_error(WRG_ARG);
-	return 0;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/31 03:02:38 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 03:46:54 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	collect(t_map *map)
 		if (map->img->exit->instances[0].y / 50 == map->player->y && \
 			map->img->exit->instances[0].x / 50 == map->player->x)
 		{
-			mlx_close_window(map->mlx);
+			ft_exit(map);
 		}
 	}
 }

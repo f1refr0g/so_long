@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/31 02:54:36 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 03:47:33 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@
 # define DOWN 3
 
 typedef struct s_img {
-	// mlx_image_t	*player;
-	// xpm_t		*tp;
 	mlx_image_t	*wall;
 	xpm_t		*t_wall;
 	mlx_image_t	*exit;
@@ -98,7 +96,6 @@ void	flood(char *sm, t_vector2 size, t_vector2 pos);
 void	lookstring(char	*sm);
 void	flood2(char *sm, t_vector2 size, t_vector2 pos);
 void	ft_destroy(t_map *map);
+void	ft_exit(t_map *map);
 
 #endif 
-
-// PROGRAM MANAGEMENT
