@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/31 03:46:54 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/03/31 04:24:30 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_move(t_map *map, char axis, int dst)
 		map->step++;
 		collect(map);
 	}
-	printf("Position X : %d Y : %d\n", map->player->x, map->player->y);
+	printf("Number of move : %d\n", map->step);
 }
 
 //check if player can proceed to next tile
@@ -98,10 +98,12 @@ void	collect(t_map *map)
 	i = -1;
 	col_x = 0;
 	col_y = 0;
-	while (++i < map->collectible)
+	while (map->collectible != 0)
 	{
 		col_y = map->img->collectible->instances[i].y / 50;
+		printf("coly : %d\n", map->img->collectible->instances[i].y / 50 );
 		col_x = map->img->collectible->instances[i].x / 50;
+		printf("colx : %d\n", map->img->collectible->instances[i].x / 50 );
 		if (col_y == map->player->y && col_x == map->player->x)
 		{
 				map->collectible--;
@@ -116,4 +118,5 @@ void	collect(t_map *map)
 			ft_exit(map);
 		}
 	}
+	i++;
 }
