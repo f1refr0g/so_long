@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/31 03:49:01 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:32:12 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char *argv[])
 		simulate_map(&map);
 		ft_load_img(&map);
 		print_img(&map);
+		create_index_nm(&map);
 		mlx_key_hook(map.mlx, &movement, &map);
 		mlx_loop(map.mlx);
 		printf("\nstep : %d\n", map.step);
