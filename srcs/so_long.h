@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/04 18:25:00 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:48:07 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 # define WRONG_EXT "Error : Wrong file extension.\n"
 # define IMG_ERR "Error loading images\n."
 # define WRG_ARG "Wrong number of argument.\n"
-# define MALLOCERR "Error allocating memory.\n"
 
 // IMAGE
 # define PLAYER_IMG "./ressources/frog.xpm42"
@@ -65,17 +64,10 @@ typedef struct s_vector2 {
 	int	y;
 }			t_vector2;
 
-typedef struct col_coord {
-	int	*x;
-	int	*y;
-}			t_colcoord;
-
 typedef struct s_map{
 	mlx_t			*mlx;
 	t_img			*img;
 	t_tp			*player;
-	mlx_instance_t	**colindex;
-	t_colcoord		*cc;
 	int				collectible;
 	int				playercount;
 	int				exit;
@@ -106,7 +98,5 @@ void	flood2(char *sm, t_vector2 size, t_vector2 pos);
 void	ft_destroy(t_map *map);
 void	ft_exit(t_map *map);
 int		check_col_pos(t_map *map);
-
-void	create_index_nm(t_map *map);
 
 #endif 
