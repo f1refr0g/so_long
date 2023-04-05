@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/04 18:48:07 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/04 20:03:57 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	lookstring(char	*sm);
 void	flood2(char *sm, t_vector2 size, t_vector2 pos);
 void	ft_destroy(t_map *map);
 void	ft_exit(t_map *map);
-int		check_col_pos(t_map *map);
+void	refresh_map(t_map *map);
+void	clear_img(t_map *map);
 
 #endif 

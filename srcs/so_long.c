@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/04 18:48:33 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/04 20:06:10 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char *argv[])
 		mlx_key_hook(map.mlx, &movement, &map);
 		mlx_loop(map.mlx);
 		printf("\nstep : %d\n", map.step);
+		ft_exit(&map);
 	}
 	else
 		ft_error(WRG_ARG);

@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/04 18:59:39 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/04 20:02:12 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,19 @@ void	movement(mlx_key_data_t keydata, void *param)
 	map = (t_map *) param;
 	if (keydata.key == MLX_KEY_W && keydata.action
 		== MLX_PRESS && check_pos(map, UP) == 1)
-	{
 		ft_move(map, 'y', -50);
-	}
 	if (keydata.key == MLX_KEY_S && keydata.action
 		== MLX_PRESS && check_pos(map, DOWN) == 1)
-	{
 		ft_move(map, 'y', 50);
-	}
 	if (keydata.key == MLX_KEY_A && keydata.action
 		== MLX_PRESS && check_pos(map, LEFT) == 1)
-	{
 		ft_move(map, 'x', -50);
-	}
 	if (keydata.key == MLX_KEY_D && keydata.action
 		== MLX_PRESS && check_pos(map, RIGHT) == 1)
-	{
 		ft_move(map, 'x', 50);
-	}
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		exit(0);
+	refresh_map(map);
 }
 
 //Function that move the player 
@@ -101,13 +94,13 @@ void	collect(t_map *map)
 	while (++i < map->collectible)
 	{
 		col_y = map->img->collectible->instances[i].y / 50;
-		printf("coly : %d\n", map->img->collectible->instances[i].y / 50);
+		printf("coly %d : %d\n", i, map->img->collectible->instances[i].y / 50);
 		col_x = map->img->collectible->instances[i].x / 50;
-		printf("colx : %d\n", map->img->collectible->instances[i].x / 50);
+		printf("colx %d: %d\n", i, map->img->collectible->instances[i].x / 50);
 		if (col_y == map->player->y && col_x == map->player->x)
 		{
 				map->collectible--;
-			map->img->collectible->instances[i].enabled = false;
+			refresh_map(map);
 		}
 	}
 	if (map->collectible == 0)
@@ -116,19 +109,4 @@ void	collect(t_map *map)
 			map->img->exit->instances[0].x / 50 == map->player->x)
 			ft_exit(map);
 	}
-}
-
-int	check_col_pos(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (i < map->img->collectible->count)
-	{
-		if (map->img->collectible->instances[i].y / 50 == map->player->y
-			&& map->img->collectible->instances[i].x / 50 == map->player->x)
-			return (i);
-	i++;
-	}
-	return (0);
 }
