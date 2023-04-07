@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/04 20:02:12 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/04 21:04:04 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,7 @@ void	collect(t_map *map)
 	while (++i < map->collectible)
 	{
 		col_y = map->img->collectible->instances[i].y / 50;
-		printf("coly %d : %d\n", i, map->img->collectible->instances[i].y / 50);
 		col_x = map->img->collectible->instances[i].x / 50;
-		printf("colx %d: %d\n", i, map->img->collectible->instances[i].x / 50);
 		if (col_y == map->player->y && col_x == map->player->x)
 		{
 				map->collectible--;

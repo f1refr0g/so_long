@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:27:56 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/04 20:02:55 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/07 18:52:54 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 //Function called in the hook every move to refresh the map
 void	refresh_map(t_map *map)
 {
-	map->sm[map->player->y * map->width + map->player->x] = '0';
+	if (map->sm[map->player->y * map->width + map->player->x] != 'E')
+		map->sm[map->player->y * map->width + map->player->x] = '0';
 	clear_img(map);
 	ft_destroy(map);
 	ft_import_img(map);
