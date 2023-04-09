@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:52:32 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/07 19:11:20 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/09 16:02:38 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 //Floodfill recrusive function to check if collectible are accessible
 void	flood(char *sm, t_vector2 size, t_vector2 pos)
 {
+	printf("sm : %s\n", sm);
 	if (sm[pos.y * size.x + pos.x - 1] != '1'
 		&& sm[pos.y * size.x + pos.x - 1] != 'F')
 	{
