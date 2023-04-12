@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:52:32 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/09 16:02:38 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/12 04:52:51 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 //Floodfill recrusive function to check if collectible are accessible
 void	flood(char *sm, t_vector2 size, t_vector2 pos)
 {
-	printf("sm : %s\n", sm);
 	if (sm[pos.y * size.x + pos.x - 1] != '1'
 		&& sm[pos.y * size.x + pos.x - 1] != 'F')
 	{
@@ -29,8 +28,10 @@ void	flood(char *sm, t_vector2 size, t_vector2 pos)
 		sm[(pos.y -1) * size.x + pos.x] = 'F';
 		pos.y -= 1;
 		flood(sm, size, pos);
+		flood3b52(sm, size, pos);
 	}
 	flood2(sm, size, pos);
+	flood3b52(sm, size, pos);
 }
 
 //Second function to floodfill.
@@ -42,6 +43,7 @@ void	flood2(char *sm, t_vector2 size, t_vector2 pos)
 		sm[pos.y * size.x + pos.x + 1] = 'F';
 		pos.x += 1;
 		flood(sm, size, pos);
+		flood3b5(sm, size, pos);
 	}
 	if (sm[(pos.y + 1) * size.x + pos.x] != '1'
 		&& sm[(pos.y + 1) * size.x + pos.x] != 'F')
@@ -49,6 +51,7 @@ void	flood2(char *sm, t_vector2 size, t_vector2 pos)
 		sm[(pos.y + 1) * size.x + pos.x] = 'F';
 		pos.y += 1;
 		flood(sm, size, pos);
+		flood3b5(sm, size, pos);
 	}
 }
 
@@ -80,6 +83,7 @@ void	simulate_map(t_map *map)
 	mapsize.y = map->height;
 	temp_map = ft_strdup(map->sm);
 	flood(temp_map, mapsize, pos);
+	flood3b5(temp_map, mapsize, pos);
 	lookstring(temp_map);
 	free(temp_map);
 }

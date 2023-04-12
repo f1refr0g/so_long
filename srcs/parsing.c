@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/09 15:59:01 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/12 04:44:34 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,9 @@ void	ft_map_init(char *file, t_map *map)
 	map->img = ft_malloc(sizeof(t_img), 1);
 	map->player = ft_malloc(sizeof(t_tp), 1);
 	read_map(file, map);
-	ft_squaremap(map);
 	ft_wallcheck(map);
+	ft_squaremap(map);
+	ft_checkchar(map);
 	ft_check_required(map);
 	map->step = 0;
 	while (++y < map->height)
