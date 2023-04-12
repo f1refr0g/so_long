@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/12 04:44:34 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:18:40 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void	ft_map_init(char *file, t_map *map)
 	ft_squaremap(map);
 	ft_checkchar(map);
 	ft_check_required(map);
-	map->step = 0;
 	while (++y < map->height)
 	{
 		x = -1;

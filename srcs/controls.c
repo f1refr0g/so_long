@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/04 21:04:04 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:20:53 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ void	collect(t_map *map)
 	int	col_y;
 
 	i = -1;
-	col_x = 0;
-	col_y = 0;
 	while (++i < map->collectible)
 	{
 		col_y = map->img->collectible->instances[i].y / 50;
@@ -105,6 +103,9 @@ void	collect(t_map *map)
 	{
 		if (map->img->exit->instances[0].y / 50 == map->player->y && \
 			map->img->exit->instances[0].x / 50 == map->player->x)
+		{
+			printf("Number of move : %d\n", map->step);
 			ft_exit(map);
+		}
 	}
 }

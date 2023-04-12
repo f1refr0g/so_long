@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/12 05:03:17 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:21:31 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,14 @@ void	read_map(char *file, t_map *map)
 void	ft_checkchar(t_map *map)
 {
 	char	*string;
-	
+
 	string = map->sm;
 	while (*string != '\0')
 	{
-		if (*string != '1' && *string != 'C' && *string != '0' && *string != 'E' && *string != 'P')
+		if (*string != '1' && *string != 'C' && *string
+			!= '0' && *string != 'E' && *string != 'P')
 			ft_error("Invalid map\n");
 		string++;
 	}
+	map->step = 0;
 }
