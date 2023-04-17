@@ -6,13 +6,12 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:58:13 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/21 23:30:43 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:30:05 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// F pour trouver mon bn
 int	ft_endline(const char *a)
 {
 	int	i;
@@ -27,7 +26,6 @@ int	ft_endline(const char *a)
 	return (0);
 }
 
-// concate mes str
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*s;
@@ -54,7 +52,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (s);
 }
 
-// F qui malloc
 void	*ft_malloc(size_t count, size_t size)
 {
 	void			*r;
@@ -75,7 +72,6 @@ void	*ft_malloc(size_t count, size_t size)
 	return (r);
 }
 
-// F qui sert a malloc une string
 char	*ft_strdup(const char *s1)
 {
 	char	*strup;
@@ -98,7 +94,6 @@ char	*ft_strdup(const char *s1)
 	return (strup);
 }
 
-//fonction pour free plusieur ptr ( double pointeur pour avoir enough medmory)
 void	ft_free(char **str, char **str2, char **str3)
 {
 	if (str && *str)

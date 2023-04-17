@@ -6,13 +6,12 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:50:51 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/11 23:58:49 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:30:23 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// stepare avant le bn
 char	*ft_preline(const char *s)
 {
 	char	*res;
@@ -40,7 +39,6 @@ char	*ft_preline(const char *s)
 	return (res);
 }
 
-// separe ce qui a ete lu , apres le bn
 char	*ft_postline(const char *s)
 {
 	char	*res;
@@ -67,7 +65,6 @@ char	*ft_postline(const char *s)
 	return (res);
 }
 
-//read mon file et le stock dans buffer
 void	ft_read(int fd, char **str, char **temp)
 {
 	char	*buffy;
@@ -96,7 +93,6 @@ void	ft_read(int fd, char **str, char **temp)
 	ft_free(&buffy, 0, 0);
 }
 
-//stock ce qui a ete lu entre les 2 bn
 char	*ft_lookline(char **buffer, char **temp)
 {
 	char	*line;

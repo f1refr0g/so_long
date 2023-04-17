@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:31:11 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/03/31 03:52:17 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:18:30 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,11 @@ void	ft_exit(t_map *map)
 	mlx_terminate(map->mlx);
 	mlx_close_window(map->mlx);
 	exit(0);
+}
+
+//Verify size of the map.
+void	check_size(t_map *map)
+{
+	if (map->width > 38 || map->height > 21)
+		ft_error("Error : Map doesn't fit inside the screen resolution.\n");
 }

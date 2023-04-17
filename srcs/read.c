@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/13 20:39:09 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:32:16 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	read_map(char *file, t_map *map)
 
 	fd = open(file, O_RDONLY, 0);
 	if (fd <= 0)
-		ft_error("Invalid FD");
+		ft_error("Error : Invalid FD.\n");
 	line = get_next_line(fd);
 	map->width = ft_strlen(line) - 1;
 	map->sm = ft_strdup(line);
@@ -45,11 +45,11 @@ void	ft_checkchar(t_map *map)
 	char	*string;
 
 	string = map->sm;
-	while (*string != '\0')
+	while (*string)
 	{
 		if (*string != '1' && *string != 'C' && *string
 			!= '0' && *string != 'E' && *string != 'P')
-			ft_error("Invalid map\n");
+			ft_error(MAP_ERR);
 		string++;
 	}
 	map->step = 0;
@@ -64,8 +64,12 @@ void	check_ll(t_map *map, char *file)
 	checker = get_next_line(fd);
 	while (checker[ft_strlen(checker)] == '\n')
 	{
-		if (((int)ft_strlen(checker) - 1) != map->width)
-			ft_error("Invalid map.\n");
+		if (((int)ft_strlen(checker)) != map->width)
+		{
+			ft_error(MAP_ERR);
+			if (checker[0] == '\n' && (int)ft_strlen(checker) != map->width)
+				ft_error(MAP_ERR);
+		}
 		free (checker);
 		checker = get_next_line(fd);
 	}

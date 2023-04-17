@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/12 05:18:40 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:30:59 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_squaremap(t_map *map)
 {
 	if (map->height * map->width != ((int)ft_strlen(map->sm))
 		&& (map->height * map->width) != ((int)(ft_strlen(map->sm) + 1)))
-		ft_error("2Map not rectangle or square \n");
+		ft_error("Error : Map not rectangle or square.\n");
 	map->sm[ft_strlen(map->sm)] = '1';
 }
 
@@ -42,17 +42,17 @@ static void	ft_wallcheck(t_map *map)
 		if (i < (size_t)map->width)
 		{
 			if (map->sm[i] != '1')
-				ft_error("Map contour must be wall only. \n");
+				ft_error(WALL_ERR);
 		}
 		else if (i % map->width == 0 || i % map->width == map->width - 1)
 		{
 			if (map->sm[i] != '1')
-				ft_error("Map contour must be wall only.\n");
+				ft_error(WALL_ERR);
 		}
 		else if (i > ft_strlen(map->sm) - map->width)
 		{
 			if (map->sm[i] != '1')
-				ft_error("Map contour must be wall only.\n");
+				ft_error(WALL_ERR);
 		}
 		i++;
 	}
@@ -75,14 +75,14 @@ static void	ft_check_required(t_map *map)
 		i++;
 	}
 	if (map->exit != 1)
-		ft_error("Map must have one exit.\n");
+		ft_error("Error : Map must have one exit.\n");
 	if (map->collectible <= 0)
-		ft_error("Map must have at least one collectible.\n");
+		ft_error("Error :Map must have at least one collectible.\n");
 	if (map->playercount != 1)
-		ft_error("Map must have one player.\n");
+		ft_error("Error : Map must have one player.\n");
 }
 
-//Initiate map then validate it's okay
+//Initiate map then validate it is okay
 void	ft_map_init(char *file, t_map *map)
 {
 	int	x;

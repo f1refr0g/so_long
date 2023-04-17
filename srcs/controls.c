@@ -6,13 +6,13 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:07:28 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/12 05:20:53 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:29:28 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//Function that receive keyn put and call the move function.
+//Function that receive key input and call the move function.
 void	movement(mlx_key_data_t keydata, void *param)
 {
 	t_map	*map;
@@ -81,7 +81,7 @@ int	check_pos(t_map *map, int direction)
 	return (1);
 }
 
-//Function call for everymove to verify if player step on collectible.
+//Function call for every move to verify if player step on collectible.
 void	collect(t_map *map)
 {
 	int	i;
@@ -104,7 +104,7 @@ void	collect(t_map *map)
 		if (map->img->exit->instances[0].y / 50 == map->player->y && \
 			map->img->exit->instances[0].x / 50 == map->player->x)
 		{
-			printf("Number of move : %d\n", map->step);
+			printf("You win with a total of : %d moves.\n", map->step);
 			ft_exit(map);
 		}
 	}

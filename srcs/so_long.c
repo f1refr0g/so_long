@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:06:10 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/13 20:28:14 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:18:06 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int argc, char *argv[])
 {
 	t_map	map;
 
-	printf("%d\n", argc);
 	if (argc == 2)
 	{
 		ft_memset(&map, 0, sizeof(t_map));
@@ -27,10 +26,10 @@ int	main(int argc, char *argv[])
 		check_ll(&map, argv[1]);
 		simulate_map(&map);
 		ft_load_img(&map);
+		check_size(&map);
 		print_img(&map);
 		mlx_key_hook(map.mlx, &movement, &map);
 		mlx_loop(map.mlx);
-		printf("\nstep : %d\n", map.step);
 		ft_exit(&map);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:27:56 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/09 13:45:35 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:29:44 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	refresh_map(t_map *map)
 	print_img(map);
 }
 
-//Clear the image to allow for refresh function
+//Clear the image to allow use of refresh function
 void	clear_img(t_map *map)
 {
 	mlx_delete_image(map->mlx, map->player->player);

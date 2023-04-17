@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/13 20:27:30 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:32:45 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@
 # include "fcntl.h"
 
 // ERROR MESSAGE
-# define INVALID_CHAR "Error : undefined character\n"
+# define INVALID_CHAR "Error : Undefined character in map.\n"
 # define TOOMANY_CHAR "Error : Too many player instance.\n"
 # define WALL_ERROR "Error : No wall\n"
 # define TOO_MANY_EXIT "Error : Too many exit.\n"
 # define WRONG_EXT "Error : Wrong file extension.\n"
-# define IMG_ERR "Error loading images\n."
-# define WRG_ARG "Wrong number of argument.\n"
+# define IMG_ERR "Error : Loading images\n."
+# define WRG_ARG "Error : Wrong number of argument.\n"
+# define WALL_ERR "Error : Map contour must be wall only.\n"
+# define MAP_ERR "Error : Invalid map.\n"
 
 // IMAGE
 # define PLAYER_IMG "./ressources/frog.xpm42"
@@ -104,4 +106,5 @@ void	flood3b5(char *sm, t_vector2 size, t_vector2 pos);
 void	flood3b52(char *sm, t_vector2 size, t_vector2 pos);
 void	ft_checkchar(t_map *map);
 void	check_ll(t_map *map, char *file);
+void	check_size(t_map *map);
 #endif 
