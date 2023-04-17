@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:10:19 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/17 12:32:45 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:30:06 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,5 @@ void	clear_img(t_map *map);
 void	flood3b5(char *sm, t_vector2 size, t_vector2 pos);
 void	flood3b52(char *sm, t_vector2 size, t_vector2 pos);
 void	ft_checkchar(t_map *map);
-void	check_ll(t_map *map, char *file);
 void	check_size(t_map *map);
 #endif 

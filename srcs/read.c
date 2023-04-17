@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/17 15:26:07 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:29:57 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,25 +54,4 @@ void	ft_checkchar(t_map *map)
 		string++;
 	}
 	map->step = 0;
-}
-
-void	check_ll(t_map *map, char *file)
-{
-	int		fd;
-	char	*checker;
-
-	fd = open(file, O_RDONLY);
-	checker = get_next_line(fd);
-	while (checker[ft_strlen(checker)] == '\n')
-	{
-		if (((int)ft_strlen(checker)) != map->width)
-		{
-			ft_error(MAP_ERR);
-			if (checker[0] == '\n' && (int)ft_strlen(checker) != map->width)
-				ft_error(MAP_ERR);
-		}
-		free (checker);
-		checker = get_next_line(fd);
-	}
-	free (checker);
 }
