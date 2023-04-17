@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:27:41 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/17 12:32:16 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:26:07 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	read_map(char *file, t_map *map)
 		if (line)
 		{
 			map->sm = ft_strjoinf(map->sm, line, 1);
-			map->sm[ft_strlen(map->sm) - 1] = '\0';
+			if (map->sm[ft_strlen(map->sm) - 1] == '\n')
+				map->sm[ft_strlen(map->sm) - 1] = '\0';
 			free(line);
 		}
 	}

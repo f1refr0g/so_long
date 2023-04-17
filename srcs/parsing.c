@@ -6,7 +6,7 @@
 /*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:05:46 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/04/17 12:30:59 by abeaudet         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:25:38 by abeaudet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 //Verify that the map is a rectangle
 static void	ft_squaremap(t_map *map)
 {
-	if (map->height * map->width != ((int)ft_strlen(map->sm))
-		&& (map->height * map->width) != ((int)(ft_strlen(map->sm) + 1)))
+	if (map->height * map->width != ((int)ft_strlen(map->sm)))
 		ft_error("Error : Map not rectangle or square.\n");
-	map->sm[ft_strlen(map->sm)] = '1';
 }
 
 //Verify file extension
